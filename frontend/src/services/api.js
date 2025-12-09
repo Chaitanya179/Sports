@@ -2,8 +2,9 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
 });
+
 
 export const fetchCourts = () => api.get('/courts');
 export const createCourt = (data) => api.post('/courts', data);
